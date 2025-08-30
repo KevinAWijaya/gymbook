@@ -10,11 +10,11 @@ use App\Repositories\BookingRepository;
 use App\Repositories\CityRepository;
 use App\Repositories\GymRepository;
 use App\Repositories\SubscribePackageRepository;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-
     public function register(): void
     {
         $this->app->singleton(CityRepositoryInterface::class, CityRepository::class);
@@ -26,8 +26,10 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    public function boot()
     {
-        //
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }
