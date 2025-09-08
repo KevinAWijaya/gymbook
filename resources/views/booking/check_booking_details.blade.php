@@ -27,7 +27,7 @@
             <div class="flex items-center justify-between">
                 <p class="font-['ClashDisplay-SemiBold'] leading-19 tracking-05">Total Payment</p>
                 <p class="leading-19 tracking-05 font-bold">Rp
-                    Rp {{ number_format($bookingDetails->total_amount, 0, ',', '.') }}</p>
+                    {{ number_format($bookingDetails->total_amount, 0, ',', '.') }}</p>
             </div>
             <div class="flex items-center justify-between">
                 <p class="font-['ClashDisplay-SemiBold'] leading-19 tracking-05">Payment Status</p>
